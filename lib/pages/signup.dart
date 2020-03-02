@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+import 'package:stepping_stone/common/app_card.dart';
+import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/signedup.dart';
+
+
+
+class SigninPage extends StatefulWidget {
+  SigninPage({Key key}) : super(key: key);
+
+  @override
+  _SigninPage createState() => _SigninPage();
+}
+
+class _SigninPage extends State<SigninPage>{
+
+  final key = GlobalKey<FormState>();
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Sign Up"),
+      ),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+          AppCard(
+            child: Center(
+              child: Text("Stepping Stone", style: TextStyle(fontSize: 32.0, color: selection,), textAlign: TextAlign.center,),
+            ),
+          ),
+          AppCard(
+            child: Form(
+              key: key,
+              child: Container(
+                margin: EdgeInsets.only(top: 20.0),
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      decoration: InputDecoration(labelText: "Enter Email"),
+                      validator: (value) => !value.contains('@') ? "Valid email required" : null,
+                      onSaved: (value) => newemail = value,
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(labelText: "Enter Username"),
+                      onSaved: (value) => newuser = value,
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(labelText: "Enter Password"),
+                      onChanged: (value) => pass1 = value,
+                      validator: (value) {
+                        int len = value.length;
+
+                        if (len < 8) {return "Password must be at least 8 characters";}
+
+                        return null;
+                      },
+                      obscureText: true,
+                    ),
+                    TextFormField(
+                      decoration: InputDecoration(labelText: "Reenter Password"),
+                      onChanged: (value) => pass2 = value,
+                      validator: (value) => pass1 != pass2 ? "Passwords don't match" : null,
+                      obscureText: true,
+                    ),
+                    Container(
+                      width: double.infinity,
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: FlatButton(
+                        color:selection,
+                        textColor: w,
+                        onPressed: () {
+                          if (this.key.currentState.validate()){
+                            this.key.currentState.save();
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignedinPage()),);
+                            }
+                        },
+                        child: Text("Sign Up"),
+                      )
+                    ),
+                  ],
+                ),
+              )
+            )
+            ),
+          ],
+          ),
+      )
+    );
+  }
+}

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/signedup.dart';
+import 'package:email_validator/email_validator.dart';
 
 
 
@@ -40,7 +41,10 @@ class _SigninPage extends State<SigninPage>{
                   children: <Widget>[
                     TextFormField(
                       decoration: InputDecoration(labelText: "Enter Email"),
-                      validator: (value) => !value.contains('@') ? "Valid email required" : null,
+                      validator: (value) {
+                        if (EmailValidator.validate(value)) {return null;}
+                        return "Valid Email required.";
+                      },  
                       onSaved: (value) => newemail = value,
                     ),
                     TextFormField(

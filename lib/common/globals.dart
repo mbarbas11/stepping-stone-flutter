@@ -12,3 +12,5 @@ String pass2 = '';
 String pass = '';
 String user = '';
 String email = '';
+
+const backendUrl = 'https://us-central1-stepping-stone-official.cloudfunctions.net/api';

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Stepping Stone',
       theme: ThemeData(primaryColor: selection),
-      home: LoadPage()
+      home: StartPage()
       );
   }
 }

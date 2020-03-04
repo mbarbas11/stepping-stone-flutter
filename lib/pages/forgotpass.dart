@@ -13,7 +13,7 @@ class ForgotPassPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Forgot Password"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

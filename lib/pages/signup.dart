@@ -23,7 +23,7 @@ class _SignupPage extends State<SignupPage>{
       appBar: AppBar(
         title: Text("Sign Up"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -88,9 +88,9 @@ class _SignupPage extends State<SignupPage>{
                 ),
               )
             )
-            ),
-          ],
           ),
+        ],
+      ),
       )
     );
   }

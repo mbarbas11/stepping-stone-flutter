@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage>{
       appBar: AppBar(
         title: Text("Log In"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

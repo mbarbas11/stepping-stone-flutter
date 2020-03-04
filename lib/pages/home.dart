@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage>{
                     margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
                     child: RaisedButton(
                       color: selection,
-                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => LoadPage()),);},
+                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);},
                       child: Text("Log out", style: TextStyle(color: w),),
                     )
                   ),

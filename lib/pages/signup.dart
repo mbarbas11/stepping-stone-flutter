@@ -6,14 +6,14 @@ import 'package:email_validator/email_validator.dart';
 
 
 
-class SigninPage extends StatefulWidget {
-  SigninPage({Key key}) : super(key: key);
+class SignupPage extends StatefulWidget {
+  SignupPage({Key key}) : super(key: key);
 
   @override
-  _SigninPage createState() => _SigninPage();
+  _SignupPage createState() => _SignupPage();
 }
 
-class _SigninPage extends State<SigninPage>{
+class _SignupPage extends State<SignupPage>{
 
   final key = GlobalKey<FormState>();
 
@@ -78,7 +78,7 @@ class _SigninPage extends State<SigninPage>{
                         onPressed: () {
                           if (this.key.currentState.validate()){
                             this.key.currentState.save();
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignedinPage()),);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => SignedupPage()),);
                             }
                         },
                         child: Text("Sign Up"),

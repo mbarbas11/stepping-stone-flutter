@@ -4,15 +4,15 @@ import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/signup.dart';
 import 'package:stepping_stone/pages/login.dart';
 
-class LoadPage extends StatefulWidget {
-  LoadPage({Key key}) : super(key: key);
+class StartPage extends StatefulWidget {
+  StartPage({Key key}) : super(key: key);
 
   @override
-  _LoadPageState createState() => _LoadPageState();
+  _StartPageState createState() => _StartPageState();
 }
 
 
-class _LoadPageState extends State<LoadPage>{
+class _StartPageState extends State<StartPage>{
 
   @override
   Widget build(BuildContext context){
@@ -52,7 +52,7 @@ class _LoadPageState extends State<LoadPage>{
                       margin: EdgeInsets.only(top: 20.0),
                       child: RaisedButton(
                         color: selection,
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SigninPage()),);},
+                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()),);},
                         child: Text("Sign Up", style: TextStyle(color: w),),
                       )
                     ),

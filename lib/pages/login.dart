@@ -103,7 +103,7 @@ class _LoginPageState extends State<LoginPage>{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text("Don't have an account?    "),
-                RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SigninPage()),);}, child: Text("Sign Up"))
+                RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()),);}, child: Text("Sign Up"))
               ]
             )
         ],

@@ -19,14 +19,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>{
 
-  void _showPass(){
-    setState((){
-      bool newValue = !showPass;
-      showPass = newValue;
-
-    });
-  }
-
 
   final key = GlobalKey<FormState>();
 
@@ -36,7 +28,7 @@ class _LoginPageState extends State<LoginPage>{
       appBar: AppBar(
         title: Text("Log In"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -58,21 +50,16 @@ class _LoginPageState extends State<LoginPage>{
                     TextFormField(
                       decoration: InputDecoration(labelText: "Password"),
                       onSaved: (value) => pass = value,
-                      obscureText: showPass,
+                      obscureText: !showPass,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[ 
-                            Container(
-                              width: 150,
-                              alignment: AlignmentDirectional.centerStart,
-                              margin: EdgeInsets.only(top: 20.0),
-                              child: FlatButton(
-                                color: selection,
-                                onPressed: _showPass,
-                                child: Text("Show/Hide Password", style: TextStyle(fontSize: 10.0, color: w), textAlign: TextAlign.center,),
-                              )
-                            ),
+                            Checkbox(
+                                value: showPass,
+                                onChanged: (value) {setState((){showPass = !showPass;});},
+                              ),  
+                            Text("Show Password", style: TextStyle(fontSize: 15.0,), textAlign: TextAlign.center,),
                           ]
                     ),
                     Container(
@@ -103,7 +90,7 @@ class _LoginPageState extends State<LoginPage>{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text("Don't have an account?    "),
-                RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SigninPage()),);}, child: Text("Sign Up"))
+                RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()),);}, child: Text("Sign Up"))
               ]
             )
         ],

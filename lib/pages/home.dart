@@ -16,6 +16,10 @@ class _HomePageState extends State<HomePage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("Welcome $user!"),
+      ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +39,17 @@ class _HomePageState extends State<HomePage>{
                     margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
                     child: RaisedButton(
                       color: selection,
-                      onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => LoadPage()),);},
+                      onPressed: () {
+                        pass1 = null;
+                        newuser = null;
+                        newemail = null;
+                        pass2 = null;
+
+                        pass = null;
+                        user = null;
+                        email = null;
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+                        },
                       child: Text("Log out", style: TextStyle(color: w),),
                     )
                   ),

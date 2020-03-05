@@ -3,19 +3,23 @@ import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/home.dart';
 
-class SignedinPage extends StatefulWidget {
-  SignedinPage({Key key}) : super(key: key);
+class SignedupPage extends StatefulWidget {
+  SignedupPage({Key key}) : super(key: key);
 
   @override
-  _SignedinPageState createState() => _SignedinPageState();
+  _SignedupPageState createState() => _SignedupPageState();
 }
 
 
-class _SignedinPageState extends State<SignedinPage>{
+class _SignedupPageState extends State<SignedupPage>{
 
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("$newuser"),
+      ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -43,9 +47,9 @@ class _SignedinPageState extends State<SignedinPage>{
               ),
             )
             ),
-        ],
+          ],
         ),
-      )
+    )
     );
   }
 }

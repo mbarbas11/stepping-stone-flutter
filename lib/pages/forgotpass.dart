@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
 
+
+
 class ForgotPassPage extends StatelessWidget {
   const ForgotPassPage({Key key}) : super(key: key);
 
@@ -11,7 +13,7 @@ class ForgotPassPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Forgot Password"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[

@@ -16,6 +16,10 @@ class _LogedinPageState extends State<LogedinPage>{
   @override
   Widget build(BuildContext context){
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("$user"),
+      ),
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

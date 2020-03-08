@@ -12,3 +12,5 @@ String pass2;
 String pass;
 String user;
 String email;
+
+List users = ["Abe", "Admin", "Agna", "BigAl", "Bjorn", "CarenwithaK", "FatPaull", "Frankie", "HandyJosh", "JoshS", "MC_Gregor", "Michael", "NickD", "NickM", "Scuba", "TheColonel", "Chancelor"];  

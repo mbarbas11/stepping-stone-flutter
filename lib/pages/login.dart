@@ -39,17 +39,20 @@ class _LoginPageState extends State<LoginPage>{
           ),
           AppCard(
             child: Form(
+              key: key,
               child: Container(
                 margin: EdgeInsets.only(top: 20.0),
                 child: Column(
                   children: <Widget>[
                     TextFormField(
-                      decoration: InputDecoration(labelText: "Email"),
-                      onSaved: (value) => email = value,
+                      decoration: InputDecoration(labelText: "Username"),
+                      onChanged: (value) => user = value,
+                      validator: (value) => users.contains(user) ? null : "Invalid username",
+                      
                     ),
                     TextFormField(
                       decoration: InputDecoration(labelText: "Password"),
-                      onSaved: (value) => pass = value,
+                      onChanged: (value) => pass = value,
                       obscureText: !showPass,
                     ),
                     Row(
@@ -68,8 +71,10 @@ class _LoginPageState extends State<LoginPage>{
                       child: RaisedButton(
                         color: selection,
                         onPressed: () {
-                          //this.key.currentState.save();
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LogedinPage()),);
+                          if (this.key.currentState.validate()){
+                            this.key.currentState.save();
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LogedinPage()),);
+                            }
                           },
                         child: Text("Login", style: TextStyle(color: w),),
                       )

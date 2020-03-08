@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
-import 'package:stepping_stone/pages/home.dart';
+import 'package:stepping_stone/pages/generichome.dart';
 
 class SignedupPage extends StatefulWidget {
   SignedupPage({Key key}) : super(key: key);
@@ -39,7 +39,7 @@ class _SignedupPageState extends State<SignedupPage>{
                     margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
                     child: RaisedButton(
                       color: selection,
-                      onPressed: () {user = newuser; Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()),);},
+                      onPressed: () {user = newuser; Navigator.push(context, MaterialPageRoute(builder: (context) => GenericHomePage()),);},
                       child: Text("Home", style: TextStyle(color: w),),
                     )
                   ),

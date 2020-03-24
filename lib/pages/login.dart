@@ -6,9 +6,6 @@ import 'package:stepping_stone/pages/forgotpass.dart';
 import 'package:stepping_stone/pages/logedin.dart';
 
 
-
-
-
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 
@@ -18,8 +15,6 @@ class LoginPage extends StatefulWidget {
 
 
 class _LoginPageState extends State<LoginPage>{
-
-
   final key = GlobalKey<FormState>();
 
   @override
@@ -46,14 +41,27 @@ class _LoginPageState extends State<LoginPage>{
                   children: <Widget>[
                     TextFormField(
                       decoration: InputDecoration(labelText: "Username"),
-                      onChanged: (value) => user = value,
-                      validator: (value) => users.contains(user) ? null : "Invalid username",
+                      onChanged: (value) {
+                        user = value;
+                      },
+                      validator: (value) {
+                        if (value == ""){
+                          return "Please enter a username";
+                        }
+                        return null;
+                      }
                       
                     ),
                     TextFormField(
                       decoration: InputDecoration(labelText: "Password"),
                       onChanged: (value) => pass = value,
                       obscureText: !showPass,
+                      validator: (value) {
+                        if (value == ""){
+                          return "Please enter a password";
+                        }
+                        return null;
+                      }
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -82,7 +90,10 @@ class _LoginPageState extends State<LoginPage>{
                     Container(
                       child: RaisedButton(
                         color: selection,
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassPage()),);},
+                        onPressed: () {
+                         
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassPage()),);
+                          },
                         child: Text("Forgot Password?", style: TextStyle(color: w),)
                       )
                     )

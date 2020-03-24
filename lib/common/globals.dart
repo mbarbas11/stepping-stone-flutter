@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-bool showPass = true;
+bool showPass = false;
 Color selection = Colors.blue[900];
 Color w = Colors.white;
 
-String pass1 = '';
-String newuser = '';
-String newemail = '';
-String pass2 = '';
+bool userNameError = false;
 
-String pass = '';
-String user = '';
-String email = '';
+String pass1;
+String newuser;
+String newemail;
+String pass2;
 
-const backendUrl = 'https://us-central1-stepping-stone-official.cloudfunctions.net/api';
+String pass;
+String user;
+String email;

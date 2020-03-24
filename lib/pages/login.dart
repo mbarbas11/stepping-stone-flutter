@@ -6,9 +6,6 @@ import 'package:stepping_stone/pages/forgotpass.dart';
 import 'package:stepping_stone/pages/logedin.dart';
 
 
-
-
-
 class LoginPage extends StatefulWidget {
   LoginPage({Key key}) : super(key: key);
 
@@ -19,13 +16,6 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage>{
 
-  void _showPass(){
-    setState((){
-      bool newValue = !showPass;
-      showPass = newValue;
-
-    });
-  }
 
 
   final key = GlobalKey<FormState>();
@@ -47,32 +37,43 @@ class _LoginPageState extends State<LoginPage>{
           ),
           AppCard(
             child: Form(
+              key: key,
               child: Container(
                 margin: EdgeInsets.only(top: 20.0),
                 child: Column(
                   children: <Widget>[
                     TextFormField(
-                      decoration: InputDecoration(labelText: "Email"),
-                      onSaved: (value) => email = value,
+                      decoration: InputDecoration(labelText: "Username"),
+                      onChanged: (value) {
+                        user = value;
+                      },
+                      validator: (value) {
+                        if (value == ""){
+                          return "Please enter a username";
+                        }
+                        return null;
+                      }
+                      
                     ),
                     TextFormField(
                       decoration: InputDecoration(labelText: "Password"),
-                      onSaved: (value) => pass = value,
-                      obscureText: showPass,
+                      onChanged: (value) => pass = value,
+                      obscureText: !showPass,
+                      validator: (value) {
+                        if (value == ""){
+                          return "Please enter a password";
+                        }
+                        return null;
+                      }
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                           children: <Widget>[ 
-                            Container(
-                              width: 150,
-                              alignment: AlignmentDirectional.centerStart,
-                              margin: EdgeInsets.only(top: 20.0),
-                              child: FlatButton(
-                                color: selection,
-                                onPressed: _showPass,
-                                child: Text("Show/Hide Password", style: TextStyle(fontSize: 10.0, color: w), textAlign: TextAlign.center,),
-                              )
-                            ),
+                            Checkbox(
+                                value: showPass,
+                                onChanged: (value) {setState((){showPass = !showPass;});},
+                              ),  
+                            Text("Show Password", style: TextStyle(fontSize: 15.0,), textAlign: TextAlign.center,),
                           ]
                     ),
                     Container(
@@ -81,8 +82,10 @@ class _LoginPageState extends State<LoginPage>{
                       child: RaisedButton(
                         color: selection,
                         onPressed: () {
-                          //this.key.currentState.save();
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => LogedinPage()),);
+                          if (this.key.currentState.validate()){
+                            this.key.currentState.save();
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LogedinPage()),);
+                            }
                           },
                         child: Text("Login", style: TextStyle(color: w),),
                       )
@@ -90,7 +93,10 @@ class _LoginPageState extends State<LoginPage>{
                     Container(
                       child: RaisedButton(
                         color: selection,
-                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassPage()),);},
+                        onPressed: () {
+                         
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassPage()),);
+                          },
                         child: Text("Forgot Password?", style: TextStyle(color: w),)
                       )
                     )

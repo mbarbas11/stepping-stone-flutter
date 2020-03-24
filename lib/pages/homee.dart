@@ -12,14 +12,9 @@ Future<Album> fetchAlbum() async {
       await http.get('http://10.0.2.2:3000/users/$user');
 
   if (response.statusCode == 200) {
-    // If the server did return a 200 OK response, then parse the JSON.
-    try{return Album.fromJson(json.decode(response.body));}
-    catch (e){
-      error = true;
-    }
+    return Album.fromJson(json.decode(response.body));
   } else {
-    // If the server did not return a 200 OK response, then throw an exception.
-    error = true;
+    throw Exception('Failed to load album');
   }
 }
 

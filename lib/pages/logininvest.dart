@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
-import 'package:stepping_stone/pages/signup.dart';
-import 'package:stepping_stone/pages/forgotpass.dart';
-import 'package:stepping_stone/pages/logedin.dart';
+import 'package:stepping_stone/pages/signupinvest.dart';
+import 'package:stepping_stone/pages/forgotpassinvest.dart';
+import 'package:stepping_stone/pages/logedininvest.dart';
 
 
-class LoginPage extends StatefulWidget {
-  LoginPage({Key key}) : super(key: key);
+class LoginInvestPage extends StatefulWidget {
+  LoginInvestPage({Key key}) : super(key: key);
 
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginInvestPageState createState() => _LoginInvestPageState();
 }
 
 
-class _LoginPageState extends State<LoginPage>{
+class _LoginInvestPageState extends State<LoginInvestPage>{
 
 
   final key = GlobalKey<FormState>();
@@ -23,7 +23,7 @@ class _LoginPageState extends State<LoginPage>{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome Back"),
+        title: Text("Welcome Back Investor"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage>{
                         color: selection,
                         onPressed: () {
                          
-                          Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassPage()),);
+                          Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPassinvestPage()),);
                           },
                         child: Text("Forgot Password?", style: TextStyle(color: w),)
                       )
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage>{
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Text("Don't have an account?    "),
-                RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()),);}, child: Text("Sign Up"))
+                RaisedButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupInvestPage()),);}, child: Text("Sign Up"))
               ]
             )
         ],

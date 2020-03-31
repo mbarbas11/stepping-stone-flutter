@@ -3,8 +3,6 @@ import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/oops.dart';
 import 'package:stepping_stone/pages/login.dart';
-import 'package:stepping_stone/pages/homea.dart';
-import 'package:stepping_stone/pages/homee.dart';
 import 'package:stepping_stone/pages/homei.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
@@ -14,7 +12,7 @@ bool error;
 
 Future<Album> fetchAlbum() async {
   final response =
-      await http.get('http://10.0.2.2:3000/users/$user');
+      await http.get('http://10.0.2.2:3000/investors/$user');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response, then parse the JSON.
@@ -34,9 +32,9 @@ class Album {
   final String email;
   final String bio;
   final String userName;
-  final String id;
+  final String type;
 
-  Album({this.firstName, this.lastName, this.email, this.userName, this.bio, this.id});
+  Album({this.firstName, this.lastName, this.email, this.userName, this.bio, this.type});
 
   factory Album.fromJson(Map<String, dynamic> json) {
     return Album(
@@ -45,7 +43,7 @@ class Album {
       email: json['email'],
       userName: json['userName'],
       bio: json['bio'],
-      id: json['id'],
+      type: json['type'],
     );
   }
 }
@@ -96,12 +94,8 @@ Future<Album> futureAlbum;
                             child: RaisedButton(
                               color: selection,
                               onPressed: () {
-                                if (snapshot.data.id == "Entrepreneur"){
-                                Navigator.push(context, MaterialPageRoute(builder: (context) => EntrepreneurPage()),);
-                                } else if (snapshot.data.id == "Investor"){
+                                if (snapshot.data.type == "Investor"){
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => InvestorPage()),);
-                                } else if (snapshot.data.id == "Admin"){
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => AdminPage()),);
                                 } else {
                                   Navigator.push(context, MaterialPageRoute(builder: (context) => OopsPage()),);
                                 }

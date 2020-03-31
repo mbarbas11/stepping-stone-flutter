@@ -4,8 +4,6 @@ bool showPass = false;
 Color selection = Colors.blue[900];
 Color w = Colors.white;
 
-bool userNameError = false;
-
 String pass1;
 String newuser;
 String newemail;

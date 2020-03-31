@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/start.dart';
 import 'dart:async';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:http/http.dart' as http;
@@ -80,6 +81,24 @@ Future<Album> futureAlbum;
                         Text(snapshot.data.firstName),
                         Text(snapshot.data.lastName),
                         Text("Welcome $user"),
+                        Container(
+                          child: RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              pass1 = null;
+                              newuser = null;
+                              newemail = null;
+                              pass2 = null;
+
+                              pass = null;
+                              user = null;
+                              email = null;
+                            
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+                              },
+                            child: Text("Log out", style: TextStyle(color: w),)
+                          )
+                        )
                       ]
                     )
                   )

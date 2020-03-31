@@ -6,14 +6,14 @@ import 'package:email_validator/email_validator.dart';
 
 
 
-class SignupPage extends StatefulWidget {
-  SignupPage({Key key}) : super(key: key);
+class SignupInvestPage extends StatefulWidget {
+  SignupInvestPage({Key key}) : super(key: key);
 
   @override
-  _SignupPage createState() => _SignupPage();
+  _SignupInvestPage createState() => _SignupInvestPage();
 }
 
-class _SignupPage extends State<SignupPage>{
+class _SignupInvestPage extends State<SignupInvestPage>{
 
   final key = GlobalKey<FormState>();
 
@@ -21,7 +21,7 @@ class _SignupPage extends State<SignupPage>{
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome"),
+        title: Text("Welcome Investor"),
       ),
       body: SingleChildScrollView(
         child: Column(

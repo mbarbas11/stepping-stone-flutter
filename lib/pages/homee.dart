@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/updatebioe.dart';
 import 'package:stepping_stone/pages/start.dart';
 import 'dart:async';
 import 'package:stepping_stone/common/app_card.dart';
@@ -61,53 +62,214 @@ Future<Album> futureAlbum;
 
   @override
   Widget build(BuildContext context){
+
+    if (user == "Bjorn"){
     return Scaffold(
        appBar: AppBar(
         automaticallyImplyLeading: false,
+        title: Text("Welcome $user"),
+        actions: <Widget>[
+          FlatButton(
+            color: selection,
+            onPressed: () {
+              pass1 = null;
+              newuser = null;
+              newemail = null;
+              pass2 = null;
+
+              pass = null;
+              user = null;
+              email = null;
+            
+              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+              },
+            child: Text("Log out", style: TextStyle(color: w),)
+          )
+        ]
       ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FutureBuilder<Album>(
-              future: futureAlbum,
-              builder: (context, snapshot) {
-                return AppCard(
+      body: FutureBuilder<Album>(
+        future: futureAlbum,
+        builder: (context, snapshot) {
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AppCard(
                   child: Container(
-                    margin: EdgeInsets.only(top: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(snapshot.data.firstName, style: TextStyle(fontSize: 25.0, color: selection),),
+                        Text(" ", style: TextStyle(fontSize: 25.0, color: selection)),
+                        Text(snapshot.data.lastName, style: TextStyle(fontSize: 25.0, color: selection)),
+                      ],
+                    )
+                  )
+                ),
+                AppCard(
+                  child: Container(
                     child: Column(
                       children: <Widget>[
-                        Text(snapshot.data.id),
-                        Text(snapshot.data.firstName),
-                        Text(snapshot.data.lastName),
-                        Text("Welcome $user"),
+                        Text("$bjorn", style: TextStyle(fontSize: 17.0)),
                         Container(
-                          child: RaisedButton(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
                             color: selection,
                             onPressed: () {
-                              pass1 = null;
-                              newuser = null;
-                              newemail = null;
-                              pass2 = null;
-
-                              pass = null;
-                              user = null;
-                              email = null;
-                            
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
-                              },
-                            child: Text("Log out", style: TextStyle(color: w),)
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioEPage()),);
+                            },
+                            child: Text("Update Bio", style: TextStyle(color: Colors.white)),
                           )
                         )
                       ]
-                    )
-                  )
-                );
-              }
+                    ),
+                  ),
+                ),
+              ]
             )
-          ]
-        )
+          );
+        }
       )
     );
+  } else if (user == "Abe"){
+    return Scaffold(
+       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("Welcome $user"),
+        actions: <Widget>[
+          FlatButton(
+            color: selection,
+            onPressed: () {
+              pass1 = null;
+              newuser = null;
+              newemail = null;
+              pass2 = null;
+
+              pass = null;
+              user = null;
+              email = null;
+            
+              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+              },
+            child: Text("Log out", style: TextStyle(color: w),)
+          )
+        ]
+      ),
+      body: FutureBuilder<Album>(
+        future: futureAlbum,
+        builder: (context, snapshot) {
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AppCard(
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(snapshot.data.firstName, style: TextStyle(fontSize: 25.0, color: selection),),
+                        Text(" ", style: TextStyle(fontSize: 25.0, color: selection)),
+                        Text(snapshot.data.lastName, style: TextStyle(fontSize: 25.0, color: selection)),
+                      ],
+                    )
+                  )
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$abe", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioEPage()),);
+                            },
+                            child: Text("Update Bio", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+              ]
+            )
+          );
+        }
+      )
+    );
+  } else {
+    return Scaffold(
+       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("Welcome $user"),
+        actions: <Widget>[
+          FlatButton(
+            color: selection,
+            onPressed: () {
+              pass1 = null;
+              newuser = null;
+              newemail = null;
+              pass2 = null;
+
+              pass = null;
+              user = null;
+              email = null;
+            
+              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+              },
+            child: Text("Log out", style: TextStyle(color: w),)
+          )
+        ]
+      ),
+      body: FutureBuilder<Album>(
+        future: futureAlbum,
+        builder: (context, snapshot) {
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AppCard(
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(snapshot.data.firstName, style: TextStyle(fontSize: 25.0, color: selection),),
+                        Text(" ", style: TextStyle(fontSize: 25.0, color: selection)),
+                        Text(snapshot.data.lastName, style: TextStyle(fontSize: 25.0, color: selection)),
+                      ],
+                    )
+                  )
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$bio", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioEPage()),);
+                            },
+                            child: Text("Update Bio", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+              ]
+            )
+          );
+        }
+      )
+    );
+  }
   }
 }

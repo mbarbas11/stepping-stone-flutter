@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/start.dart';
 
 
 
@@ -32,6 +33,7 @@ class ForgotPassPage extends StatelessWidget {
                   ),
                   TextFormField(
                     decoration: InputDecoration(labelText: "Username"),
+                    onChanged: (value) {user = value;},
                   ),
                   Container(
                     width: double.infinity,
@@ -39,7 +41,17 @@ class ForgotPassPage extends StatelessWidget {
                     child: FlatButton(
                       color: selection,
                       textColor: w,
-                      onPressed: () {},
+                      onPressed: () {
+                        if (user == "Bjorn"){
+                          bjornpass = "newpass";
+                        } else if (user == "Abe"){
+                          abepass = "newpass";
+                        } else {
+                          p = "newpass";
+                        }
+                        user = "";
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+                      },
                       child: Text("Send me a new password"),
                     )
                   ),

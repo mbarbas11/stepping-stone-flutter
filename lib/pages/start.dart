@@ -5,6 +5,7 @@ import 'package:stepping_stone/pages/signup.dart';
 import 'package:stepping_stone/pages/login.dart';
 import 'package:stepping_stone/pages/signupinvest.dart';
 import 'package:stepping_stone/pages/logininvest.dart';
+import 'package:stepping_stone/pages/anonhome.dart';
 
 class StartPage extends StatefulWidget {
   StartPage({Key key}) : super(key: key);
@@ -23,7 +24,7 @@ class _StartPageState extends State<StartPage>{
         automaticallyImplyLeading: false,
         title: Text("Welcome!"),
       ),
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -39,13 +40,13 @@ class _StartPageState extends State<StartPage>{
             ),
             AppCard(
               child: Container(
-                margin: EdgeInsets.only(top: 20.0),
+                margin: EdgeInsets.only(top: 15.0),
                 child: Column(
                   children: <Widget>[
                     Text("Already have an account?", style: TextStyle(fontSize: 18.0, color: selection), textAlign: TextAlign.center,),
                     Container(
                       width: 200,
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 15.0),
                       child: RaisedButton(
                         color: selection,
                         onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => LoginInvestPage()),);},
@@ -54,7 +55,7 @@ class _StartPageState extends State<StartPage>{
                     ),
                     Container(
                       width: 200,
-                      margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                      margin: EdgeInsets.only(top: 15.0, bottom: 15.0),
                       child: RaisedButton(
                         color: selection,
                         onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);},
@@ -64,7 +65,7 @@ class _StartPageState extends State<StartPage>{
                     Text("Make a new account?", style: TextStyle(fontSize: 18.0, color: selection), textAlign: TextAlign.center,),
                     Container(
                       width: 200,
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 15.0),
                       child: RaisedButton(
                         color: selection,
                         onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupInvestPage()),);},
@@ -73,11 +74,21 @@ class _StartPageState extends State<StartPage>{
                     ),
                     Container(
                       width: 200,
-                      margin: EdgeInsets.only(top: 20.0),
+                      margin: EdgeInsets.only(top: 15.0, bottom: 15.0),
                       child: RaisedButton(
                         color: selection,
                         onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage()),);},
                         child: Text("Entrepreneur Sign Up", style: TextStyle(color: w),),
+                      )
+                    ),
+                    Text("Don't want to log in?", style: TextStyle(fontSize: 18.0, color: selection), textAlign: TextAlign.center,),
+                    Container(
+                      width: 200,
+                      margin: EdgeInsets.only(top: 15.0),
+                      child: RaisedButton(
+                        color: selection,
+                        onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => HomeAnonPage()),);},
+                        child: Text("Anonymous Account", style: TextStyle(color: w),),
                       )
                     ),
                   ],

@@ -49,15 +49,15 @@ class Album {
 }
 
 
-class LogedinPage extends StatefulWidget {
-  LogedinPage({Key key}) : super(key: key);
+class LogedinInvestPage extends StatefulWidget {
+  LogedinInvestPage({Key key}) : super(key: key);
 
   @override
-  _LogedinPageState createState() => _LogedinPageState();
+  _LogedinInvestPageState createState() => _LogedinInvestPageState();
 }
 
 
-class _LogedinPageState extends State<LogedinPage>{
+class _LogedinInvestPageState extends State<LogedinInvestPage>{
 Future<Album> futureAlbum;
 
   @override

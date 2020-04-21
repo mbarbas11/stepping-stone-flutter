@@ -3,6 +3,8 @@ import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/start.dart';
 import 'package:stepping_stone/pages/updatebioi.dart';
+import 'package:stepping_stone/pages/findentrepreneur.dart';
+import 'package:stepping_stone/pages/following.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -118,7 +120,29 @@ Future<Album> futureAlbum;
                               Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioIPage()),);
                             },
                             child: Text("Update Bio", style: TextStyle(color: Colors.white)),
-                          )
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FindEntrepreneurPage()),);
+                            },
+                            child: Text("Find Entrepreneurs", style: TextStyle(color: Colors.white)),
+                          ),
+                        ),
+                         Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FollowingPage()),);
+                            },
+                            child: Text("Following", style: TextStyle(color: Colors.white)),
+                          ),
                         )
                       ]
                     ),

@@ -83,7 +83,7 @@ class _LoginInvestPageState extends State<LoginInvestPage>{
                         onPressed: () {
                           if (this.key.currentState.validate()){
                             this.key.currentState.save();
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => LogedinPage()),);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => LogedinInvestPage()),);
                             }
                           },
                         child: Text("Login", style: TextStyle(color: w),),

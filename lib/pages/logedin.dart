@@ -70,6 +70,7 @@ Future<Album> futureAlbum;
 
   @override
   Widget build(BuildContext context){
+   if ((user == "Bjorn" && pass == bjornpass) || (user == "Abe" && pass == abepass) || (user != "Bjorn" && user != "Abe" && pass == p)){
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -149,5 +150,48 @@ Future<Album> futureAlbum;
         )
       )
     );
+  } else {
+    return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Text("$user"),
+      ),
+      body: Container(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[ 
+            AppCard(
+                    child: Container(
+                      margin: EdgeInsets.only(top: 20.0),
+                      child: Column(
+                        children: <Widget>[
+                          Container(
+                            width: 200,
+                            margin: EdgeInsets.only(top: 20.0, bottom: 20.0),
+                            child: RaisedButton(
+                              color: selection,
+                              onPressed: () {
+                                pass1 = null;
+                                newuser = null;
+                                newemail = null;
+                                pass2 = null;
+
+                                pass = null;
+                                user = null;
+                                email = null;
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()),);
+                                },
+                              child: Text("Invalid Password", style: TextStyle(color: w),),
+                            )
+                          )
+                        ]
+                      )
+                    )
+                  )
+          ]
+        )
+      )
+    );
+  }
   }
 }

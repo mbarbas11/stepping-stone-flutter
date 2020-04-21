@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/start.dart';
+import 'package:stepping_stone/pages/updatebioi.dart';
+import 'package:stepping_stone/pages/findentrepreneur.dart';
+import 'package:stepping_stone/pages/following.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -64,49 +67,91 @@ Future<Album> futureAlbum;
     return Scaffold(
        appBar: AppBar(
         automaticallyImplyLeading: false,
-      ),
-      body: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FutureBuilder<Album>(
-              future: futureAlbum,
-              builder: (context, snapshot) {
-                return AppCard(
-                  child: Container(
-                    margin: EdgeInsets.only(top: 20.0),
-                    child: Column(
-                      children: <Widget>[
-                        Text(snapshot.data.type),
-                        Text(snapshot.data.firstName),
-                        Text(snapshot.data.lastName),
-                        Text("Welcome $user"),
-                        Container(
-                          child: RaisedButton(
-                            color: selection,
-                            onPressed: () {
-                              pass1 = null;
-                              newuser = null;
-                              newemail = null;
-                              pass2 = null;
+        title: Text("Welcome $user"),
+        actions: <Widget>[
+          FlatButton(
+            color: selection,
+            onPressed: () {
+              pass1 = null;
+              newuser = null;
+              newemail = null;
+              pass2 = null;
 
-                              pass = null;
-                              user = null;
-                              email = null;
-                            
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
-                              },
-                            child: Text("Log out", style: TextStyle(color: w),)
-                          )
-                        )
-                      ]
+              pass = null;
+              user = null;
+              email = null;
+            
+              Navigator.push(context, MaterialPageRoute(builder: (context) => StartPage()),);
+              },
+            child: Text("Log out", style: TextStyle(color: w),)
+          )
+        ]
+      ),
+      body: FutureBuilder<Album>(
+        future: futureAlbum,
+        builder: (context, snapshot) {
+          return SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                AppCard(
+                  child: Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(snapshot.data.firstName, style: TextStyle(fontSize: 25.0, color: selection),),
+                        Text(" ", style: TextStyle(fontSize: 25.0, color: selection)),
+                        Text(snapshot.data.lastName, style: TextStyle(fontSize: 25.0, color: selection)),
+                      ],
                     )
                   )
-                );
-              }
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text(snapshot.data.bio, style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioIPage()),);
+                            },
+                            child: Text("Update Bio", style: TextStyle(color: Colors.white)),
+                          ),
+                        ),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FindEntrepreneurPage()),);
+                            },
+                            child: Text("Find Entrepreneurs", style: TextStyle(color: Colors.white)),
+                          ),
+                        ),
+                         Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FollowingPage()),);
+                            },
+                            child: Text("Following", style: TextStyle(color: Colors.white)),
+                          ),
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+              ]
             )
-          ]
-        )
+          );
+        }
       )
     );
   }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/globals.dart';
 import 'package:stepping_stone/pages/start.dart';
-import 'package:stepping_stone/pages/findentrepreneur.dart';
+import 'package:stepping_stone/pages/videotest.dart';
+import 'package:stepping_stone/pages/getalltest.dart';
 
 
 

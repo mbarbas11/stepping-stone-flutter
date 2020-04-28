@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/app_card.dart';
+import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/start.dart';
 import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -50,15 +52,15 @@ class Album {
 }
 
 
-class FindEntrepreneurPage extends StatefulWidget {
-  FindEntrepreneurPage({Key key}) : super(key: key);
+class GetallTestPage extends StatefulWidget {
+  GetallTestPage({Key key}) : super(key: key);
 
   @override
-  _FindEntrepreneurPageState createState() => _FindEntrepreneurPageState();
+  _GetallTestPageState createState() => _GetallTestPageState();
 }
 
 
-class _FindEntrepreneurPageState extends State<FindEntrepreneurPage>{
+class _GetallTestPageState extends State<GetallTestPage>{
 Future<Album> futureAlbum;
 
   @override
@@ -72,7 +74,7 @@ Future<Album> futureAlbum;
    return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("Entrepreneurs"),
+        title: Text("test"),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -87,6 +89,7 @@ Future<Album> futureAlbum;
                       child: Column(
                         children: <Widget>[
                           Text("$test"),
+                          Text("You are loged in")
                         ]
                       )
                     )

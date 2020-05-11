@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/videotest.dart';
 import 'dart:async';
 import 'package:stepping_stone/common/app_card.dart';
 import 'package:stepping_stone/pages/FindEntrepreneur.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:stepping_stone/pages/investing.dart';
 
 bool error = false;
 
@@ -83,9 +85,14 @@ Future<Album> futureAlbum;
                         Text(" ", style: TextStyle(fontSize: 25.0, color: selection)),
                         Text(snapshot.data.lastName, style: TextStyle(fontSize: 25.0, color: selection)),
                       ],
-                    )
+                    ),
+                    
                   )
                 ),
+                Image.asset('images/$img',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,),
                 AppCard(
                   child: Container(
                     child: Column(
@@ -101,7 +108,99 @@ Future<Album> futureAlbum;
                       Navigator.push(context, MaterialPageRoute(builder: (context) => FindEntrepreneurPage()),);
                     },
                     child: Text("Unfollow"),
-                  )
+                  ),
+                  RaisedButton(
+                          onPressed: () {
+                            if(userview == "Bjorn"){
+                              bjornrec = bjornrec +1;
+                              }
+                            if(userview == "Abe"){
+                              aberec = aberec +1;
+                              }
+                              if(userview != "Bjorn" && userview != "Abe"){
+                              rec = rec +1;
+                              }
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>FindEntrepreneurPage()),);
+                          },
+                          child: Text("Recomend"),
+                        ),
+                  AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$pN1", style: TextStyle(fontSize: 17.0)),
+                        Text("$pT1", style: TextStyle(fontSize: 14.0)),
+                        RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url1 != null){
+                              url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          ),
+                          RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Invest()),);
+                            },
+                            child: Text("Invest", style: TextStyle(color: Colors.white)),
+                          ),
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$pN2", style: TextStyle(fontSize: 17.0)),
+                        Text("$pT2", style: TextStyle(fontSize: 14.0)),
+                        RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url2 != null) {url = url2;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          ),
+                          RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Invest()),);
+                            },
+                            child: Text("Invest", style: TextStyle(color: Colors.white)),
+                          ),
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$pN3", style: TextStyle(fontSize: 17.0)),
+                        Text("$pT3", style: TextStyle(fontSize: 14.0)),
+                        RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url3 != null){url = url3;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                              
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          ),
+                          RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Invest()),);
+                            },
+                            child: Text("Invest", style: TextStyle(color: Colors.white)),
+                          ),
+                      ]
+                    ),
+                  ),
+                ),
               ]
             )
           );
@@ -132,6 +231,10 @@ Future<Album> futureAlbum;
                     )
                   )
                 ),
+                Image.asset('images/$img',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,),
                 AppCard(
                   child: Container(
                     child: Column(
@@ -141,13 +244,113 @@ Future<Album> futureAlbum;
                     ),
                   ),
                 ),
-                  RaisedButton(
-                    onPressed: () {
-                      follow.add(userview);
-                      Navigator.push(context, MaterialPageRoute(builder: (context) =>FindEntrepreneurPage()),);
-                    },
-                    child: Text("Follow"),
-                  )
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        RaisedButton(
+                          onPressed: () {
+                            follow.add(userview);
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>FindEntrepreneurPage()),);
+                          },
+                          child: Text("Follow"),
+                        ),
+                        RaisedButton(
+                          onPressed: () {
+                            if(userview == "Bjorn"){
+                              bjornrec = bjornrec +1;
+                              }
+                            if(userview == "Abe"){
+                              aberec = aberec +1;
+                              }
+                              if(userview != "Bjorn" && userview != "Abe"){
+                              rec = rec +1;
+                              }
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>FindEntrepreneurPage()),);
+                          },
+                          child: Text("Recomend"),
+                        ),
+                        ]
+                    ),
+                  ),
+                ),
+                  AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$pN1", style: TextStyle(fontSize: 17.0)),
+                        Text("$pT1", style: TextStyle(fontSize: 14.0)),
+                        RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url1 != null){
+                              url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          ),
+                          RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Invest()),);
+                            },
+                            child: Text("Invest", style: TextStyle(color: Colors.white)),
+                          ),
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$pN2", style: TextStyle(fontSize: 17.0)),
+                        Text("$pT2", style: TextStyle(fontSize: 14.0)),
+                        RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url2 != null) {url = url2;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          ),
+                          RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Invest()),);
+                            },
+                            child: Text("Invest", style: TextStyle(color: Colors.white)),
+                          ),
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$pN3", style: TextStyle(fontSize: 17.0)),
+                        Text("$pT3", style: TextStyle(fontSize: 14.0)),
+                        RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url3 != null){url = url3;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                              
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          ),
+                          RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => Invest()),);
+                            },
+                            child: Text("Invest", style: TextStyle(color: Colors.white)),
+                          ),
+                      ]
+                    ),
+                  ),
+                ),
               ]
             )
           );

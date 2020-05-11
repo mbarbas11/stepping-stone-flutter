@@ -1,53 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:stepping_stone/common/app_card.dart';
-import 'dart:async';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-
-bool error;
-
-String test = "test";
-
-Future<Album> fetchAlbum() async {
-  final response =
-      await http.get('http://10.0.2.2:3000/users');
-
-  if (response.statusCode == 200) {
-    // If the server did return a 200 OK response, then parse the JSON.
-    try{
-      print(response.body);
-      test = response.body;
-      return json.decode(response.body);}
-    catch (e){
-      error = true;
-    }
-  } else {
-    // If the server did not return a 200 OK response, then throw an exception.
-    error = true;
-  }
-}
-
-class Album {
-  final String firstName;
-  final String lastName;
-  final String email;
-  final String bio;
-  final String userName;
-  final String id;
-
-  Album({this.firstName, this.lastName, this.email, this.userName, this.bio, this.id});
-
-  factory Album.fromJson(Map<String, dynamic> json) {
-    return Album(
-      firstName: json['firstName'],
-      lastName: json['lastName'],
-      email: json['email'],
-      userName: json['userName'],
-      bio: json['bio'],
-      id: json['id'],
-    );
-  }
-}
+import 'package:stepping_stone/pages/investview.dart';
+import 'package:stepping_stone/pages/homei.dart';
+import 'package:stepping_stone/common/globals.dart';
 
 
 class FindEntrepreneurPage extends StatefulWidget {
@@ -59,43 +13,162 @@ class FindEntrepreneurPage extends StatefulWidget {
 
 
 class _FindEntrepreneurPageState extends State<FindEntrepreneurPage>{
-Future<Album> futureAlbum;
-
-  @override
-  void initState() {
-    super.initState();
-    futureAlbum = fetchAlbum();
-  }
-
   @override
   Widget build(BuildContext context){
-   return Scaffold(
-      appBar: AppBar(
+    return Scaffold(
+       appBar: AppBar(
+        actions: <Widget>[
+          FlatButton(
+            color: selection,
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>InvestorPage()),);
+              },
+            child: Text("Home", style: TextStyle(color: w),)
+          )
+        ],
         automaticallyImplyLeading: false,
         title: Text("Entrepreneurs"),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            FutureBuilder<Album>(
-              future: futureAlbum,
-              builder: (context, snapshot) {
-                  return AppCard(
-                    child: Container(
-                      margin: EdgeInsets.only(top: 20.0),
-                      child: Column(
-                        children: <Widget>[
-                          Text("$test"),
-                        ]
-                      )
-                    )
-                  );
-              }
-            )
-          ]
-        )
-      )
+      body: ListView(
+        children: <Widget>[
+          ListTile(
+            title: Text('Abe       Recomended: $aberec Times'),
+            onTap: () {
+              userview = "Abe";
+              pN1 = abeNPOne;
+              pT1 = abeTPOne;
+              pN2 = abeNPTwo;
+              pT2 = abeTPTwo;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = sham;
+              url2 = squ;
+              url3 = null;
+              img = 'Abe.jpg';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("Agna       Recomended: $rec Times"),
+            onTap: () {
+              userview = "Agna";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'generic.png';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("BigAl       Recomended: $rec Times"),
+            onTap: () {
+              userview = "BigAl";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'generic.png';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("Bjorn       Recomended: $bjornrec Times"),
+            onTap: () {
+              userview = "Bjorn";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'Bjorn.jpg';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("Frankie       Recomended: $rec Times"),
+            onTap: () {
+              userview = "Frankie";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'generic.png';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("HandyJosh       Recomended: $rec Times"),
+            onTap: () {
+              userview = "HandyJosh";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'generic.png';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("Scuba       Recomended: $rec Times"),
+            onTap: () {
+              userview = "Scuba";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'generic.png';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+          ListTile(
+            title: Text("TheColonel       Recomended: $rec Times"),
+            onTap: () {
+              userview = "TheColonel";
+              pN1 = gNOne;
+              pT1 = gText;
+              pN2 = gNTwo;
+              pT2 = gText;
+              pN3 = gNThree;
+              pT3 = gText;
+              url1 = null;
+              url2 = null;
+              url3 = null;
+              img = 'generic.png';
+              Navigator.push(context, MaterialPageRoute(builder: (context) => InvestViewPage()),);
+            },
+          ),
+        ],
+      ),
     );
   }
 }

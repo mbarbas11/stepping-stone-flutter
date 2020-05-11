@@ -1,5 +1,6 @@
 import 'package:video_player/video_player.dart';
 import 'package:flutter/material.dart';
+import 'package:stepping_stone/common/globals.dart';
 
 class VideoApp extends StatefulWidget {
   @override
@@ -13,7 +14,7 @@ class _VideoAppState extends State<VideoApp> {
   void initState() {
     super.initState();
     _controller = VideoPlayerController.network(
-        'https://firebasestorage.googleapis.com/v0/b/stepping-stone-flutter.appspot.com/o/Call%20of%20Duty%C2%AE_%20Modern%20Warfare%C2%AE%202020-04-21%2018-17-44.mp4?alt=media&token=bfd49f58-cba9-4cc8-bf2d-ef41acf5751f')
+        '$url')
       ..initialize().then((_) {
         // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
         setState(() {});

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stepping_stone/common/globals.dart';
+import 'package:stepping_stone/pages/videotest.dart';
 import 'package:stepping_stone/pages/updatebioe.dart';
 import 'package:stepping_stone/pages/start.dart';
 import 'dart:async';
@@ -106,6 +107,10 @@ Future<Album> futureAlbum;
                     )
                   )
                 ),
+                Image.asset('images/Bjorn.jpg',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,),
                 AppCard(
                   child: Container(
                     child: Column(
@@ -120,6 +125,73 @@ Future<Album> futureAlbum;
                               Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioEPage()),);
                             },
                             child: Text("Update Bio", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNOne", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNTwo", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              url = url2;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNThree", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url3 != null){url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                              
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
                           )
                         )
                       ]
@@ -175,6 +247,10 @@ Future<Album> futureAlbum;
                     )
                   )
                 ),
+                Image.asset('images/Abe.jpg',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,),
                 AppCard(
                   child: Container(
                     child: Column(
@@ -189,6 +265,73 @@ Future<Album> futureAlbum;
                               Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioEPage()),);
                             },
                             child: Text("Update Bio", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$abeNPOne", style: TextStyle(fontSize: 17.0)),
+                        Text("$abeTPOne", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              url = sham;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$abeNPTwo", style: TextStyle(fontSize: 17.0)),
+                        Text("$abeTPTwo", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              url = squ;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNThree", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url3 != null){url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                              
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
                           )
                         )
                       ]
@@ -244,6 +387,10 @@ Future<Album> futureAlbum;
                     )
                   )
                 ),
+                Image.asset('images/generic.png',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,),
                 AppCard(
                   child: Container(
                     child: Column(
@@ -258,6 +405,73 @@ Future<Album> futureAlbum;
                               Navigator.push(context, MaterialPageRoute(builder: (context) => UpdateBioEPage()),);
                             },
                             child: Text("Update Bio", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNOne", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNTwo", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              url = url2;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
+                          )
+                        )
+                      ]
+                    ),
+                  ),
+                ),
+                AppCard(
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        Text("$gNThree", style: TextStyle(fontSize: 17.0)),
+                        Text("$gText", style: TextStyle(fontSize: 17.0)),
+                        Container(
+                          width: double.infinity,
+                          margin: EdgeInsets.only(top: 20.0),
+                          child:RaisedButton(
+                            color: selection,
+                            onPressed: () {
+                              if (url3 != null){url = url1;
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => VideoApp()),);}
+                              
+                            },
+                            child: Text("Video", style: TextStyle(color: Colors.white)),
                           )
                         )
                       ]

@@ -106,6 +106,10 @@ Future<Album> futureAlbum;
                     )
                   )
                 ),
+                Image.asset('images/generic.png',
+                    width: 100,
+                    height: 100,
+                    fit: BoxFit.fill,),
                 AppCard(
                   child: Container(
                     child: Column(
